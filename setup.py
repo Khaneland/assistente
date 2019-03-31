@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import codecs
 import os
-import re
+import re  <input/>
 import setuptools
 
 
