@@ -1,10 +1,5 @@
-import wolframalpha
+import wikipedia
 
-input = raw_input("Pergunta: ")
-app_id = "5395J6-5WTJ3AGLKT"
-Client = wolframalpha.Client(app_id)
-
-res = client.query(input)
-answer = next(res.result).text
-
-print answer
+while True:
+    input = raw_input ("Q: ")
+    print wikipedia.summary(input)
