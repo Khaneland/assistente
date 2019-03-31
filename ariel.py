@@ -1,6 +1,12 @@
 import wx
 import wikipedia
 import wolframalpha
+import wolframalpha
+import pyttsx
+# import speech_recognition as sr
+
+app_id = "5395J6-5WTJ3AGLKT"
+client = wolframalpha.Client(app_id)
 
 class MyFrame(wx.Frame):
     def __init__(self):
@@ -22,31 +28,25 @@ class MyFrame(wx.Frame):
         self.Show()
     
     def OnEnter(self, event):
+
         input = self.txt.GetValue()
         input = input.lower()
         try:
-            #wolframalpha
-            app_id = "5395J6-5WTJ3AGLKT"
-            client = wolframalpha.Client(app_id)
-            res = client.query(input)
-            answer = next(res.result).text
-            print answer
-        except:
-            #wikipedia
-            input = input.split(' ')
-            input = " ".join(input[2:])
-            print wikipedia.summary(input)
+        	res = client.query(input)
+        	answer = next(res.results).text
+        	print answer
+                engine = pyttsx.init()
+                engine.say('The answer is '+str(answer))
+                engine.runAndWait()
+       	except:
+       		try:
+       			input = input.split(' ')
+       			input = ' '.join(input[2:])
+       			print wikipedia.summary(input)
+       		except:
+       			print "I don't know"
  
 if __name__ == "__main__":
     app = wx.App(True)
     frame = MyFrame()
     app.MainLoop()
-
-
-
-
-# while True:
-#     input = raw_input ("Q: ")
-    
-    
-        
