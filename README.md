@@ -1,4 +1,4 @@
-# Assistente Ariel
+# Assistant Ariel
 :robot: A desktop assistant that brings information from Wikipedia :robot:
 
 ## Table of Contents
